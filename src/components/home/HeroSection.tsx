@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Play, Users, Globe, Zap, Star } from 'lucide-react';
+import { ArrowRight, Play, Users, Globe, Zap, Star, Rocket, DollarSign, Award, Calendar } from 'lucide-react';
 import heroBg from '@/assets/hero-bg.jpg';
 
 const STATS = [
@@ -11,29 +11,21 @@ const STATS = [
 ];
 
 const FLOATING_CARDS = [
-  { icon: '🚀', text: 'New community created', sub: 'Bangalore Tech Hub', color: 'from-coral-400 to-orange-500' },
-  { icon: '💰', text: 'Revenue milestone hit', sub: '₹1L earned today!', color: 'from-emerald-400 to-teal-500' },
-  { icon: '⭐', text: 'Top creator of the week', sub: '@arjun.mehta', color: 'from-indigo-400 to-violet-500' },
-  { icon: '🎉', text: 'Event sold out!', sub: 'Tech Summit 2025', color: 'from-pink-400 to-rose-500' },
+  { Icon: Rocket, text: 'New community created', sub: 'Bangalore Tech Hub', color: 'from-coral-400 to-orange-500' },
+  { Icon: DollarSign, text: 'Revenue milestone hit', sub: '₹1L earned today!', color: 'from-emerald-400 to-teal-500' },
+  { Icon: Award, text: 'Top creator of the week', sub: '@arjun.mehta', color: 'from-indigo-400 to-violet-500' },
+  { Icon: Calendar, text: 'Event sold out!', sub: 'Tech Summit 2025', color: 'from-pink-400 to-rose-500' },
 ];
 
-const HERO_IMAGES = [
-  heroBg,
-  heroBg,
-  heroBg,
+const MINI_STATS = [
+  { label: 'Members', Icon: Users, color: 'from-coral-500 to-orange-500' },
+  { label: 'Communities', Icon: Globe, color: 'from-indigo-500 to-violet-500' },
+  { label: 'Events Today', Icon: Zap, color: 'from-emerald-500 to-teal-500' },
 ];
 
 export default function HeroSection() {
   const [count, setCount] = useState({ members: 0, communities: 0, events: 0 });
-  const [slideIndex, setSlideIndex] = useState(0);
   const [activeCard, setActiveCard] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setSlideIndex(i => (i + 1) % 3);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -70,6 +62,8 @@ export default function HeroSection() {
     return n.toString();
   };
 
+  const miniValues = [formatCount(count.members), formatCount(count.communities), formatCount(count.events)];
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
@@ -91,7 +85,7 @@ export default function HeroSection() {
             <div className="flex items-center gap-2 mb-6">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2">
                 <div className="w-2 h-2 bg-emerald-400 rounded-full animate-ping-slow" />
-                <span className="text-sm font-medium text-white/90">🇮🇳 India's #1 Social Platform</span>
+                <span className="text-sm font-medium text-white/90">India's #1 Social Platform</span>
               </div>
             </div>
 
@@ -155,14 +149,10 @@ export default function HeroSection() {
 
               {/* Mini stats */}
               <div className="grid grid-cols-3 gap-3 mb-5">
-                {[
-                  { label: 'Members', value: formatCount(count.members), icon: '👥', color: 'from-coral-500 to-orange-500' },
-                  { label: 'Communities', value: formatCount(count.communities), icon: '🌐', color: 'from-indigo-500 to-violet-500' },
-                  { label: 'Events Today', value: formatCount(count.events), icon: '⚡', color: 'from-emerald-500 to-teal-500' },
-                ].map(stat => (
+                {MINI_STATS.map((stat, idx) => (
                   <div key={stat.label} className={`bg-gradient-to-br ${stat.color} rounded-xl p-3 text-white text-center`}>
-                    <div className="text-2xl mb-1">{stat.icon}</div>
-                    <div className="font-bold text-lg leading-tight">{stat.value}</div>
+                    <div className="flex items-center justify-center mb-1"><stat.Icon size={18} /></div>
+                    <div className="font-bold text-lg leading-tight">{miniValues[idx]}</div>
                     <div className="text-xs opacity-80">{stat.label}</div>
                   </div>
                 ))}
@@ -173,7 +163,7 @@ export default function HeroSection() {
                 {[
                   { user: 'Arjun M.', action: 'joined Bangalore Tech Hub', time: '2m ago', avatar: 'https://i.pravatar.cc/150?img=12' },
                   { user: 'Priya S.', action: 'created a new event', time: '5m ago', avatar: 'https://i.pravatar.cc/150?img=47' },
-                  { user: 'Ravi K.', action: 'earned Creator badge 🏆', time: '8m ago', avatar: 'https://i.pravatar.cc/150?img=33' },
+                  { user: 'Ravi K.', action: 'earned Creator badge', time: '8m ago', avatar: 'https://i.pravatar.cc/150?img=33' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 bg-white/10 rounded-xl p-2.5">
                     <img src={item.avatar} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
@@ -199,7 +189,7 @@ export default function HeroSection() {
               >
                 <div className={`glass-dark bg-gradient-to-br ${card.color} rounded-2xl p-3 shadow-xl border border-white/20`}>
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">{card.icon}</span>
+                    <card.Icon size={20} className="text-white flex-shrink-0" />
                     <div>
                       <p className="text-xs font-semibold text-white">{card.text}</p>
                       <p className="text-xs text-white/70">{card.sub}</p>

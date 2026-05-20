@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Clock, Share2, Heart, BookOpen } from 'lucide-react';
+import { ArrowLeft, Clock, Share2, Heart, Star } from 'lucide-react';
 import { BLOG_POSTS } from '@/data/mockData';
 import { useState } from 'react';
 import { toast } from 'sonner';
@@ -69,7 +69,7 @@ export default function BlogDetail() {
             </Link>
             <div className="flex items-center gap-2 mb-4">
               <span className="text-xs font-semibold bg-white/20 text-white px-3 py-1 rounded-full">{post.category}</span>
-              {post.featured && <span className="text-xs bg-coral-500/80 text-white px-3 py-1 rounded-full font-semibold">⭐ Featured</span>}
+              {post.featured && <span className="text-xs bg-coral-500/80 text-white px-3 py-1 rounded-full font-semibold">Featured</span>}
             </div>
             <h1 className="text-4xl lg:text-5xl font-black mb-6 leading-tight" style={{ fontFamily: 'Plus Jakarta Sans' }}>{post.title}</h1>
             <div className="flex items-center gap-4">
@@ -119,7 +119,7 @@ export default function BlogDetail() {
 
               {/* Actions */}
               <div className="flex items-center gap-4 mt-6">
-                <button onClick={() => { setLiked(!liked); toast.success(liked ? 'Unliked' : 'Liked! ❤️'); }} className={`flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all ${liked ? 'bg-red-50 text-red-500 border border-red-200' : 'bg-gray-100 text-gray-600 hover:bg-red-50 hover:text-red-500'}`}>
+                <button onClick={() => { setLiked(!liked); toast.success(liked ? 'Unliked' : 'Liked!'); }} className={`flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all ${liked ? 'bg-red-50 text-red-500 border border-red-200' : 'bg-gray-100 text-gray-600 hover:bg-red-50 hover:text-red-500'}`}>
                   <Heart size={16} fill={liked ? 'currentColor' : 'none'} /> {liked ? 'Liked!' : 'Like'}
                 </button>
                 <button onClick={() => { navigator.clipboard.writeText(window.location.href); toast.success('Link copied!'); }} className="flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm bg-gray-100 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 transition-all">

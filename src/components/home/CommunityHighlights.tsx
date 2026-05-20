@@ -17,7 +17,7 @@ export default function CommunityHighlights() {
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="🌐 Community Highlights"
+          badge="Community Highlights"
           title="Trending "
           highlight="Communities"
           subtitle="Join thousands of passionate groups across technology, business, design, gaming, and more."

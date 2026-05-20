@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Zap, Users, FileText, Calendar, MessageSquare, Video, Lock, Globe, ArrowRight, CheckCircle } from 'lucide-react';
+import { Zap, Users, FileText, Calendar, MessageSquare, Video, Lock, Globe, ArrowRight, CheckCircle, Building2, Briefcase } from 'lucide-react';
 import PageTransition from '@/components/ui-custom/PageTransition';
 import SectionHeader from '@/components/ui-custom/SectionHeader';
 import communityVisual from '@/assets/community-visual.jpg';
@@ -15,10 +15,10 @@ const FEATURES = [
 ];
 
 const SPACE_TYPES = [
-  { title: 'Team Workspace', desc: 'For companies and remote teams', members: '2-500', icon: '🏢', color: 'gradient-primary' },
-  { title: 'Community Hub', desc: 'For communities and interest groups', members: '10-10,000', icon: '🌐', color: 'gradient-secondary' },
-  { title: 'Family Circle', desc: 'Private family group space', members: '2-50', icon: '👨‍👩‍👧‍👦', color: 'from-emerald-500 to-teal-600' },
-  { title: 'Project Room', desc: 'Time-limited project collaboration', members: '2-100', icon: '🚀', color: 'from-pink-500 to-rose-600' },
+  { title: 'Team Workspace', desc: 'For companies and remote teams', members: '2-500', Icon: Building2, color: 'gradient-primary' },
+  { title: 'Community Hub', desc: 'For communities and interest groups', members: '10-10,000', Icon: Globe, color: 'gradient-secondary' },
+  { title: 'Family Circle', desc: 'Private family group space', members: '2-50', Icon: Users, color: 'from-emerald-500 to-teal-600' },
+  { title: 'Project Room', desc: 'Time-limited project collaboration', members: '2-100', Icon: Briefcase, color: 'from-pink-500 to-rose-600' },
 ];
 
 export default function Collaboration() {
@@ -32,7 +32,7 @@ export default function Collaboration() {
             <div className="absolute bottom-20 left-20 w-80 h-80 bg-indigo-400 rounded-full blur-3xl animate-float-delayed" />
           </div>
           <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-6 border border-white/20">🚀 Collaboration Spaces</span>
+            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-6 border border-white/20">Collaboration Spaces</span>
             <h1 className="text-6xl font-black mb-6" style={{ fontFamily: 'Plus Jakarta Sans' }}>
               Where Great Teams<br /><span className="text-coral-300">Build Great Things</span>
             </h1>
@@ -53,7 +53,7 @@ export default function Collaboration() {
         {/* Features */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader badge="✨ Features" title="Everything You Need to " highlight="Collaborate" subtitle="Powerful tools that grow with your team." />
+            <SectionHeader badge="Features" title="Everything You Need to " highlight="Collaborate" subtitle="Powerful tools that grow with your team." />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {FEATURES.map(f => {
                 const Icon = f.icon;
@@ -74,18 +74,21 @@ export default function Collaboration() {
         {/* Space Types */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader badge="🏗️ Space Types" title="Choose Your " highlight="Workspace Type" subtitle="Spaces designed for every collaboration need." />
+            <SectionHeader badge="Space Types" title="Choose Your " highlight="Workspace Type" subtitle="Spaces designed for every collaboration need." />
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {SPACE_TYPES.map(space => (
-                <div key={space.title} className="group cursor-pointer">
-                  <div className={`h-32 bg-gradient-to-br ${space.color} rounded-2xl flex items-center justify-center text-5xl mb-4 group-hover:scale-105 transition-transform shadow-lg`}>
-                    {space.icon}
+              {SPACE_TYPES.map(space => {
+                const SpaceIcon = space.Icon;
+                return (
+                  <div key={space.title} className="group cursor-pointer">
+                    <div className={`h-32 bg-gradient-to-br ${space.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform shadow-lg`}>
+                      <SpaceIcon size={40} className="text-white" />
+                    </div>
+                    <h3 className="font-bold text-gray-900 mb-1 group-hover:text-coral-600 transition-colors">{space.title}</h3>
+                    <p className="text-sm text-gray-500 mb-2">{space.desc}</p>
+                    <span className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-full"><Users size={10} className="inline mr-1" />{space.members} members</span>
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-1 group-hover:text-coral-600 transition-colors">{space.title}</h3>
-                  <p className="text-sm text-gray-500 mb-2">{space.desc}</p>
-                  <span className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-full"><Users size={10} className="inline mr-1" />{space.members} members</span>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -96,7 +99,7 @@ export default function Collaboration() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <img src={communityVisual} alt="Collaboration" className="rounded-3xl shadow-2xl w-full object-cover" />
               <div>
-                <span className="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-600 text-sm font-semibold rounded-full mb-4 border border-indigo-100">🌟 Why TOGETHERS Spaces?</span>
+                <span className="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-600 text-sm font-semibold rounded-full mb-4 border border-indigo-100">Why TOGETHERS Spaces?</span>
                 <h2 className="text-4xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Plus Jakarta Sans' }}>Built for the Way <span className="text-gradient">Indians Work</span></h2>
                 <ul className="space-y-4 mb-8">
                   {[

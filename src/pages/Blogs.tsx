@@ -34,7 +34,7 @@ export default function Blogs() {
         {/* Hero */}
         <div className="gradient-hero py-20 text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
-            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">📖 TOGETHERS Blog</span>
+            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">TOGETHERS Blog</span>
             <h1 className="text-5xl font-black mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Insights for Communities & Creators</h1>
             <p className="text-white/70 text-xl mb-8">Expert articles on community building, creator economy, events, and platform updates.</p>
             <div className="relative max-w-lg mx-auto">
@@ -56,7 +56,7 @@ export default function Blogs() {
                     <div className="p-8">
                       <div className="flex items-center gap-2 mb-4">
                         <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLORS[post.category] || 'bg-gray-100 text-gray-600'}`}>{post.category}</span>
-                        <span className="text-xs bg-coral-50 text-coral-600 px-2.5 py-1 rounded-full font-semibold">⭐ Featured</span>
+                        <span className="text-xs bg-coral-50 text-coral-600 px-2.5 py-1 rounded-full font-semibold">Featured</span>
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-coral-600 transition-colors leading-snug">{post.title}</h3>
                       <p className="text-gray-500 text-sm mb-6 leading-relaxed">{post.excerpt}</p>

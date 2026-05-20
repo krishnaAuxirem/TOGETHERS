@@ -50,7 +50,7 @@ export default function Footer() {
     await new Promise(r => setTimeout(r, 1000));
     setLoading(false);
     setEmail('');
-    toast.success('🎉 You\'re subscribed! Welcome to the TOGETHERS community.');
+    toast.success('You are subscribed! Welcome to the TOGETHERS community.');
   };
 
   return (
@@ -61,7 +61,7 @@ export default function Footer() {
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <h2 className="text-3xl font-bold text-white mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-                Stay in the Loop 🚀
+                Stay in the Loop
               </h2>
               <p className="text-white/70 text-lg">Get weekly updates on communities, events, creator tips, and platform news.</p>
             </div>
@@ -103,7 +103,7 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm text-gray-500">
                 <MapPin size={14} className="text-coral-500" />
-                <span>Mumbai, India 🇮🇳</span>
+                <span>Mumbai, India</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-500">
                 <Mail size={14} className="text-coral-500" />
@@ -147,7 +147,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} TOGETHERS Technologies Pvt. Ltd. All rights reserved. Made with ❤️ in India.
+              &copy; {new Date().getFullYear()} TOGETHERS Technologies Pvt. Ltd. All rights reserved. Made with care in India.
             </p>
             <div className="flex items-center gap-4">
               {SOCIAL_LINKS.map(({ icon: Icon, href, label, color }) => (

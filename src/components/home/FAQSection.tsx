@@ -19,7 +19,7 @@ export default function FAQSection() {
     <section className="py-24 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="❓ FAQ"
+          badge="FAQ"
           title="Frequently Asked "
           highlight="Questions"
           subtitle="Everything you need to know about TOGETHERS."

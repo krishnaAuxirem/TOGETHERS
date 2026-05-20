@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Users, Globe, Target, Heart, ArrowRight } from 'lucide-react';
+import { Users, Globe, Target, Heart, ArrowRight, Linkedin } from 'lucide-react';
 import PageTransition from '@/components/ui-custom/PageTransition';
 import SectionHeader from '@/components/ui-custom/SectionHeader';
 import aboutTeam from '@/assets/about-team.jpg';
@@ -21,12 +21,12 @@ const VALUES = [
 ];
 
 const MILESTONES = [
-  { year: '2023', event: 'TOGETHERS founded in Mumbai by Priya & Arjun', icon: '🚀' },
-  { year: 'Q1 2024', event: 'Crossed 100,000 users — first major milestone', icon: '🎯' },
-  { year: 'Q2 2024', event: 'Raised ₹15Cr Series A from top Indian VCs', icon: '💰' },
-  { year: 'Q3 2024', event: 'Launched Creator Monetization Program', icon: '⭐' },
-  { year: 'Q4 2024', event: 'Hit 1 million users and ₹10Cr creator earnings', icon: '🏆' },
-  { year: '2025', event: 'Expanding to Southeast Asia — Singapore launch Q3', icon: '🌏' },
+  { year: '2023', event: 'TOGETHERS founded in Mumbai by Priya & Arjun' },
+  { year: 'Q1 2024', event: 'Crossed 100,000 users — first major milestone' },
+  { year: 'Q2 2024', event: 'Raised Rs.15Cr Series A from top Indian VCs' },
+  { year: 'Q3 2024', event: 'Launched Creator Monetization Program' },
+  { year: 'Q4 2024', event: 'Hit 1 million users and Rs.10Cr creator earnings' },
+  { year: '2025', event: 'Expanding to Southeast Asia — Singapore launch Q3' },
 ];
 
 export default function About() {
@@ -40,7 +40,7 @@ export default function About() {
             <div className="absolute bottom-10 right-1/4 w-64 h-64 bg-indigo-500 rounded-full blur-3xl animate-float-delayed" />
           </div>
           <div className="relative max-w-4xl mx-auto px-4">
-            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">🏢 About TOGETHERS</span>
+            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">About TOGETHERS</span>
             <h1 className="text-6xl font-black mb-6" style={{ fontFamily: 'Plus Jakarta Sans' }}>Building India's<br /><span className="text-coral-300">Community Future</span></h1>
             <p className="text-white/70 text-xl max-w-2xl mx-auto">We're on a mission to connect 100 million Indians through meaningful communities, shared experiences, and collaborative growth.</p>
           </div>
@@ -59,10 +59,10 @@ export default function About() {
                   TOGETHERS was born from a simple belief: that when people with shared passions come together, extraordinary things happen. We build the infrastructure for those connections.
                 </p>
                 <p className="text-gray-500 mb-8 leading-relaxed">
-                  Founded in 2023 by Priya Sharma and Arjun Mehta in Mumbai, we've grown to serve over 1 million members across India — from tech founders in Bangalore to creative communities in Kerala. Our platform has enabled ₹10Cr+ in creator earnings and facilitated thousands of meaningful collaborations.
+                  Founded in 2023 by Priya Sharma and Arjun Mehta in Mumbai, we've grown to serve over 1 million members across India — from tech founders in Bangalore to creative communities in Kerala. Our platform has enabled Rs.10Cr+ in creator earnings and facilitated thousands of meaningful collaborations.
                 </p>
                 <div className="grid grid-cols-3 gap-4">
-                  {[{ v: '1M+', l: 'Members' }, { v: '50K+', l: 'Communities' }, { v: '₹10Cr+', l: 'Creator Revenue' }].map(s => (
+                  {[{ v: '1M+', l: 'Members' }, { v: '50K+', l: 'Communities' }, { v: 'Rs.10Cr+', l: 'Creator Revenue' }].map(s => (
                     <div key={s.l} className="text-center glass-card rounded-2xl p-4">
                       <p className="text-2xl font-black text-coral-600">{s.v}</p>
                       <p className="text-xs text-gray-500">{s.l}</p>
@@ -80,7 +80,7 @@ export default function About() {
         {/* Values */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader badge="💡 Our Values" title="What We " highlight="Stand For" subtitle="The principles that guide every decision we make." />
+            <SectionHeader badge="Our Values" title="What We " highlight="Stand For" subtitle="The principles that guide every decision we make." />
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {VALUES.map(v => {
                 const Icon = v.icon;
@@ -101,14 +101,14 @@ export default function About() {
         {/* Timeline */}
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader badge="📅 Our Journey" title="From Idea to " highlight="1 Million Users" />
+            <SectionHeader badge="Our Journey" title="From Idea to " highlight="1 Million Users" />
             <div className="relative">
               <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-coral-500 to-indigo-500" />
               <div className="space-y-6">
                 {MILESTONES.map((m, i) => (
                   <div key={i} className="flex items-start gap-6 pl-16 relative">
-                    <div className="absolute left-0 w-12 h-12 bg-white border-2 border-coral-500 rounded-2xl flex items-center justify-center text-xl shadow-card">
-                      {m.icon}
+                    <div className="absolute left-0 w-12 h-12 bg-white border-2 border-coral-500 rounded-2xl flex items-center justify-center shadow-card">
+                      <span className="text-xs font-bold text-coral-600 text-center leading-tight">{m.year.slice(0, 4)}</span>
                     </div>
                     <div className="glass-card rounded-2xl p-4 flex-1 hover-lift">
                       <span className="text-xs font-bold text-coral-500 uppercase tracking-wide">{m.year}</span>
@@ -124,14 +124,16 @@ export default function About() {
         {/* Team */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader badge="👥 The Team" title="Meet the People " highlight="Behind TOGETHERS" subtitle="A passionate team of community builders, engineers, and creators." />
+            <SectionHeader badge="The Team" title="Meet the People " highlight="Behind TOGETHERS" subtitle="A passionate team of community builders, engineers, and creators." />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {TEAM.map(member => (
                 <div key={member.name} className="glass-card rounded-3xl p-6 hover-lift text-center border border-gray-100 group">
                   <img src={member.avatar} alt={member.name} className="w-20 h-20 rounded-2xl object-cover mx-auto mb-4 group-hover:scale-105 transition-transform" />
                   <h3 className="font-bold text-gray-900 mb-1 group-hover:text-coral-600 transition-colors">{member.name}</h3>
                   <p className="text-sm text-gray-500 mb-4">{member.role}</p>
-                  <a href={member.linkedin} className="inline-flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-700 font-medium">💼 LinkedIn</a>
+                  <a href={member.linkedin} className="inline-flex items-center gap-1.5 text-xs text-indigo-600 hover:text-indigo-700 font-medium">
+                    <Linkedin size={12} /> LinkedIn Profile
+                  </a>
                 </div>
               ))}
             </div>

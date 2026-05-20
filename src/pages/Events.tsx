@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar, MapPin, Users, Ticket, Search, Filter, Video } from 'lucide-react';
+import { Calendar, MapPin, Users, Ticket, Search, Video } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { EVENTS } from '@/data/mockData';
 import { useAuth } from '@/contexts/AuthContext';
@@ -40,7 +40,7 @@ export default function Events() {
         toast.info('RSVP cancelled');
       } else {
         next.add(id);
-        toast.success(`RSVP confirmed for ${title}! 🎉 Check your email for details.`);
+        toast.success(`RSVP confirmed for ${title}! Check your email for details.`);
       }
       return next;
     });
@@ -54,7 +54,7 @@ export default function Events() {
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${eventsVisual})` }} />
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 to-gray-900/60" />
           <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">📅 12,000+ Events Monthly</span>
+            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">12,000+ Events Monthly</span>
             <h1 className="text-5xl font-black mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Discover Amazing Events</h1>
             <p className="text-white/70 text-xl mb-8">Virtual and in-person events across India. Learn, network, and grow.</p>
 
@@ -95,8 +95,8 @@ export default function Events() {
                   <div className={`h-3 ${event.isVirtual ? 'gradient-secondary' : 'gradient-primary'}`} />
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${event.isVirtual ? 'bg-indigo-50 text-indigo-600' : 'bg-coral-50 text-coral-600'}`}>
-                        {event.isVirtual ? <span className="flex items-center gap-1"><Video size={10} /> Virtual</span> : <span className="flex items-center gap-1"><MapPin size={10} /> In-Person</span>}
+                      <span className={`text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1 ${event.isVirtual ? 'bg-indigo-50 text-indigo-600' : 'bg-coral-50 text-coral-600'}`}>
+                        {event.isVirtual ? <><Video size={10} /> Virtual</> : <><MapPin size={10} /> In-Person</>}
                       </span>
                       <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">{event.category}</span>
                     </div>
@@ -138,7 +138,7 @@ export default function Events() {
                         onClick={() => handleRSVP(event.id, event.title)}
                         className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${rsvpd ? 'bg-emerald-50 text-emerald-600 border border-emerald-200' : 'bg-coral-500 hover:bg-coral-600 text-white shadow-coral hover-lift'}`}
                       >
-                        {rsvpd ? '✓ RSVP\'d' : 'RSVP Now'}
+                        {rsvpd ? 'RSVP\'d' : 'RSVP Now'}
                       </button>
                     </div>
                   </div>
@@ -149,7 +149,7 @@ export default function Events() {
 
           {filtered.length === 0 && (
             <div className="text-center py-20">
-              <div className="text-6xl mb-4">📅</div>
+              <Calendar size={48} className="text-gray-200 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-2">No events found</h3>
               <p className="text-gray-500">Try different filters or search terms</p>
             </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Filter, Users, TrendingUp, Lock, Globe, Plus } from 'lucide-react';
+import { Search, Users, TrendingUp, Lock, Globe, Plus } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { COMMUNITIES } from '@/data/mockData';
 import { useAuth } from '@/contexts/AuthContext';
@@ -44,7 +44,7 @@ export default function Communities() {
         toast.success(`Left ${name}`);
       } else {
         next.add(id);
-        toast.success(`Joined ${name}! Welcome! 🎉`);
+        toast.success(`Joined ${name}! Welcome!`);
       }
       return next;
     });
@@ -59,7 +59,7 @@ export default function Communities() {
             <div className="absolute top-10 right-10 w-64 h-64 bg-coral-500 rounded-full blur-3xl" />
           </div>
           <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">🌐 50,000+ Communities</span>
+            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">50,000+ Communities</span>
             <h1 className="text-5xl font-black mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Find Your Tribe</h1>
             <p className="text-white/70 text-xl mb-8">Discover communities where you belong, connect, and grow together.</p>
 
@@ -140,7 +140,7 @@ export default function Communities() {
                       onClick={() => handleJoin(community.id, community.name)}
                       className={`w-full py-2.5 rounded-xl text-sm font-semibold transition-all ${joined ? 'bg-gray-100 text-gray-600 hover:bg-red-50 hover:text-red-500' : 'bg-coral-500 hover:bg-coral-600 text-white shadow-coral hover-lift'}`}
                     >
-                      {joined ? 'Joined ✓' : community.isPrivate ? 'Request to Join' : 'Join Community'}
+                      {joined ? 'Joined' : community.isPrivate ? 'Request to Join' : 'Join Community'}
                     </button>
                   </div>
                 </div>
@@ -150,7 +150,7 @@ export default function Communities() {
 
           {filtered.length === 0 && (
             <div className="text-center py-20">
-              <div className="text-6xl mb-4">🔍</div>
+              <Search size={48} className="text-gray-200 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-2">No communities found</h3>
               <p className="text-gray-500">Try a different search or category</p>
             </div>

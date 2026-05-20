@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { Search, ChevronDown, ChevronUp, BookOpen, MessageSquare, Video, Mail } from 'lucide-react';
+import { Search, ChevronDown, ChevronUp, MessageSquare, Video, Mail, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageTransition from '@/components/ui-custom/PageTransition';
 
 const HELP_CATEGORIES = [
-  { icon: '🚀', title: 'Getting Started', articles: 12, desc: 'Setup, onboarding, and first steps' },
-  { icon: '👥', title: 'Communities', articles: 18, desc: 'Creating and managing communities' },
-  { icon: '📅', title: 'Events', articles: 15, desc: 'Hosting and attending events' },
-  { icon: '💰', title: 'Creator Monetization', articles: 24, desc: 'Earning, payments, and billing' },
-  { icon: '🔐', title: 'Account & Security', articles: 10, desc: 'Login, privacy, and security' },
-  { icon: '📱', title: 'Mobile App', articles: 8, desc: 'Using TOGETHERS on mobile' },
+  { title: 'Getting Started', articles: 12, desc: 'Setup, onboarding, and first steps' },
+  { title: 'Communities', articles: 18, desc: 'Creating and managing communities' },
+  { title: 'Events', articles: 15, desc: 'Hosting and attending events' },
+  { title: 'Creator Monetization', articles: 24, desc: 'Earning, payments, and billing' },
+  { title: 'Account & Security', articles: 10, desc: 'Login, privacy, and security' },
+  { title: 'Mobile App', articles: 8, desc: 'Using TOGETHERS on mobile' },
 ];
 
 const FAQS = [
@@ -29,7 +29,7 @@ export default function HelpCenter() {
       <div className="min-h-screen bg-gray-50 pt-20">
         <div className="gradient-hero py-20 text-center text-white">
           <div className="max-w-3xl mx-auto px-4">
-            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">❓ Help Center</span>
+            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">Help Center</span>
             <h1 className="text-5xl font-black mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>How Can We Help?</h1>
             <p className="text-white/70 text-xl mb-8">Search our knowledge base or contact our support team.</p>
             <div className="relative max-w-lg mx-auto">
@@ -44,7 +44,9 @@ export default function HelpCenter() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
             {HELP_CATEGORIES.map(cat => (
               <button key={cat.title} className="glass-card rounded-2xl p-6 hover-lift border border-gray-100 text-left group">
-                <div className="text-4xl mb-3">{cat.icon}</div>
+                <div className="w-10 h-10 bg-coral-50 rounded-xl flex items-center justify-center mb-3">
+                  <BookOpen size={18} className="text-coral-500" />
+                </div>
                 <h3 className="font-bold text-gray-900 group-hover:text-coral-600 transition-colors mb-1">{cat.title}</h3>
                 <p className="text-sm text-gray-500 mb-2">{cat.desc}</p>
                 <span className="text-xs text-coral-500 font-semibold">{cat.articles} articles</span>

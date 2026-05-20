@@ -11,10 +11,10 @@ const STATS = [
 ];
 
 const EARNING_STREAMS = [
-  { emoji: '🎟️', title: 'Premium Events', desc: 'Host paid events and workshops for your audience', amount: '₹5K–₹50K per event' },
-  { emoji: '👥', title: 'Premium Communities', desc: 'Charge monthly subscriptions for exclusive access', amount: '₹199–₹2,999/month' },
-  { emoji: '📦', title: 'Digital Products', desc: 'Sell courses, templates, and digital downloads', amount: '₹999–₹29,999 one-time' },
-  { emoji: '💝', title: 'Supporter Tips', desc: 'Receive direct support from your biggest fans', amount: 'Unlimited' },
+  { title: 'Premium Events', desc: 'Host paid events and workshops for your audience', amount: '₹5K–₹50K per event' },
+  { title: 'Premium Communities', desc: 'Charge monthly subscriptions for exclusive access', amount: '₹199–₹2,999/month' },
+  { title: 'Digital Products', desc: 'Sell courses, templates, and digital downloads', amount: '₹999–₹29,999 one-time' },
+  { title: 'Supporter Tips', desc: 'Receive direct support from your biggest fans', amount: 'Unlimited' },
 ];
 
 export default function CreatorEconomySection() {
@@ -22,7 +22,7 @@ export default function CreatorEconomySection() {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="💰 Creator Economy"
+          badge="Creator Economy"
           title="Turn Your Passion into "
           highlight="Profit"
           subtitle="Join 12,000+ creators earning real income through communities, events, and exclusive content."
@@ -49,7 +49,7 @@ export default function CreatorEconomySection() {
             <div className="space-y-3">
               {EARNING_STREAMS.map(stream => (
                 <div key={stream.title} className="flex items-start gap-4 p-4 bg-gray-50 hover:bg-coral-50 rounded-2xl transition-all group cursor-pointer">
-                  <span className="text-2xl flex-shrink-0">{stream.emoji}</span>
+                  <div className="w-8 h-8 bg-coral-100 rounded-lg flex items-center justify-center flex-shrink-0"><DollarSign size={14} className="text-coral-600" /></div>
                   <div className="flex-1">
                     <p className="font-semibold text-gray-900 group-hover:text-coral-700 text-sm">{stream.title}</p>
                     <p className="text-xs text-gray-500">{stream.desc}</p>

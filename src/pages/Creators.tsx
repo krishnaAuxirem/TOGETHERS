@@ -5,19 +5,19 @@ import SectionHeader from '@/components/ui-custom/SectionHeader';
 import creatorVisual from '@/assets/creator-visual.jpg';
 
 const TOP_CREATORS = [
-  { name: 'Arjun Mehta', niche: 'Tech & Startups', followers: '45.2K', earning: '₹2.8L/mo', avatar: 'https://i.pravatar.cc/150?img=12', badge: '🔥' },
-  { name: 'Meera Nair', niche: 'Lifestyle & Travel', followers: '38.9K', earning: '₹1.9L/mo', avatar: 'https://i.pravatar.cc/150?img=35', badge: '⭐' },
-  { name: 'Vikram Reddy', niche: 'Finance & Investing', followers: '62.1K', earning: '₹4.2L/mo', avatar: 'https://i.pravatar.cc/150?img=22', badge: '🏆' },
-  { name: 'Anjali Gupta', niche: 'Fitness & Wellness', followers: '29.4K', earning: '₹1.2L/mo', avatar: 'https://i.pravatar.cc/150?img=41', badge: '💪' },
-  { name: 'Rithvik Sharma', niche: 'Gaming & Esports', followers: '89.3K', earning: '₹6.1L/mo', avatar: 'https://i.pravatar.cc/150?img=17', badge: '🎮' },
-  { name: 'Priya Iyer', niche: 'Education & Learning', followers: '51.7K', earning: '₹3.4L/mo', avatar: 'https://i.pravatar.cc/150?img=44', badge: '📚' },
+  { name: 'Arjun Mehta', niche: 'Tech & Startups', followers: '45.2K', earning: 'Rs.2.8L/mo', avatar: 'https://i.pravatar.cc/150?img=12' },
+  { name: 'Meera Nair', niche: 'Lifestyle & Travel', followers: '38.9K', earning: 'Rs.1.9L/mo', avatar: 'https://i.pravatar.cc/150?img=35' },
+  { name: 'Vikram Reddy', niche: 'Finance & Investing', followers: '62.1K', earning: 'Rs.4.2L/mo', avatar: 'https://i.pravatar.cc/150?img=22' },
+  { name: 'Anjali Gupta', niche: 'Fitness & Wellness', followers: '29.4K', earning: 'Rs.1.2L/mo', avatar: 'https://i.pravatar.cc/150?img=41' },
+  { name: 'Rithvik Sharma', niche: 'Gaming & Esports', followers: '89.3K', earning: 'Rs.6.1L/mo', avatar: 'https://i.pravatar.cc/150?img=17' },
+  { name: 'Priya Iyer', niche: 'Education & Learning', followers: '51.7K', earning: 'Rs.3.4L/mo', avatar: 'https://i.pravatar.cc/150?img=44' },
 ];
 
 const JOURNEY_STEPS = [
-  { step: '01', title: 'Build Your Profile', desc: 'Create your creator profile, verify your identity, and showcase your niche and expertise.', icon: '👤' },
-  { step: '02', title: 'Grow Your Audience', desc: 'Use AI recommendations to reach the right audience. Get discovered through trending communities.', icon: '📈' },
-  { step: '03', title: 'Create Premium Content', desc: 'Launch premium communities, host paid events, sell digital products, and receive tips.', icon: '✨' },
-  { step: '04', title: 'Earn & Scale', desc: 'Get paid directly to your Indian bank account. Analytics to track and grow your revenue.', icon: '💰' },
+  { step: '01', title: 'Build Your Profile', desc: 'Create your creator profile, verify your identity, and showcase your niche and expertise.' },
+  { step: '02', title: 'Grow Your Audience', desc: 'Use AI recommendations to reach the right audience. Get discovered through trending communities.' },
+  { step: '03', title: 'Create Premium Content', desc: 'Launch premium communities, host paid events, sell digital products, and receive tips.' },
+  { step: '04', title: 'Earn & Scale', desc: 'Get paid directly to your Indian bank account. Analytics to track and grow your revenue.' },
 ];
 
 export default function Creators() {
@@ -32,11 +32,11 @@ export default function Creators() {
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="text-white">
-                <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-6 border border-white/20">🌟 Creator Program</span>
+                <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-6 border border-white/20">Creator Program</span>
                 <h1 className="text-6xl font-black mb-6" style={{ fontFamily: 'Plus Jakarta Sans' }}>
                   Build. Grow.<br /><span className="text-coral-300">Monetize.</span>
                 </h1>
-                <p className="text-white/70 text-xl mb-8">Join 12,000+ creators earning ₹10Cr+ monthly. Turn your passion into a thriving business on India's fastest-growing creator platform.</p>
+                <p className="text-white/70 text-xl mb-8">Join 12,000+ creators earning Rs.10Cr+ monthly. Turn your passion into a thriving business on India's fastest-growing creator platform.</p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/register" className="flex items-center gap-2 px-8 py-4 bg-coral-500 hover:bg-coral-600 text-white font-bold rounded-2xl transition-all hover-lift shadow-coral">
                     Start Creating Today
@@ -59,7 +59,7 @@ export default function Creators() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { value: '₹10Cr+', label: 'Total Paid to Creators', icon: DollarSign, color: 'coral' },
+                { value: 'Rs.10Cr+', label: 'Total Paid to Creators', icon: DollarSign, color: 'coral' },
                 { value: '12,000+', label: 'Active Creators', icon: Users, color: 'indigo' },
                 { value: '340%', label: 'Avg Revenue Growth', icon: TrendingUp, color: 'emerald' },
                 { value: '4.9/5', label: 'Creator Satisfaction', icon: Star, color: 'amber' },
@@ -82,13 +82,15 @@ export default function Creators() {
         {/* Creator Journey */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader badge="🗺️ Creator Journey" title="Your Path to " highlight="Creator Success" subtitle="Four simple steps from zero to thriving creator." />
+            <SectionHeader badge="Creator Journey" title="Your Path to " highlight="Creator Success" subtitle="Four simple steps from zero to thriving creator." />
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {JOURNEY_STEPS.map(step => (
+              {JOURNEY_STEPS.map((step, idx) => (
                 <div key={step.step} className="glass-card rounded-2xl p-6 hover-lift relative overflow-hidden group">
                   <div className="text-6xl font-black text-gray-100 absolute -top-2 -right-2 group-hover:text-coral-100 transition-colors">{step.step}</div>
                   <div className="relative">
-                    <div className="text-4xl mb-4">{step.icon}</div>
+                    <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center mb-4">
+                      <span className="text-white font-bold text-sm">{idx + 1}</span>
+                    </div>
                     <h3 className="font-bold text-gray-900 mb-2">{step.title}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
                   </div>
@@ -101,14 +103,16 @@ export default function Creators() {
         {/* Top Creators */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader badge="🏆 Top Creators" title="Meet Our " highlight="Star Creators" subtitle="Real creators, real earnings, real impact." />
+            <SectionHeader badge="Top Creators" title="Meet Our " highlight="Star Creators" subtitle="Real creators, real earnings, real impact." />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {TOP_CREATORS.map(creator => (
                 <div key={creator.name} className="glass-card rounded-3xl p-6 hover-lift group border border-gray-100">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="relative">
                       <img src={creator.avatar} alt={creator.name} className="w-14 h-14 rounded-2xl object-cover" />
-                      <span className="absolute -top-2 -right-2 text-lg">{creator.badge}</span>
+                      <div className="absolute -top-1 -right-1 w-5 h-5 bg-coral-500 rounded-full flex items-center justify-center">
+                        <CheckCircle size={11} className="text-white" />
+                      </div>
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900 group-hover:text-coral-600 transition-colors">{creator.name}</h3>

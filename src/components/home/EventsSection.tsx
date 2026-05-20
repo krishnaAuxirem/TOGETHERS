@@ -8,7 +8,7 @@ export default function EventsSection() {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="📅 Events & Activities"
+          badge="Events & Activities"
           title="Don't Miss "
           highlight="These Events"
           subtitle="From tech conferences to creative workshops — find events that ignite your passion."
@@ -24,7 +24,7 @@ export default function EventsSection() {
                 {/* Badges */}
                 <div className="flex items-center gap-2 mb-3">
                   <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${event.isVirtual ? 'bg-indigo-50 text-indigo-600' : 'bg-coral-50 text-coral-600'}`}>
-                    {event.isVirtual ? '🎥 Virtual' : '📍 In-Person'}
+                    {event.isVirtual ? 'Virtual' : 'In-Person'}
                   </span>
                   <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">{event.category}</span>
                   {event.price === 0 && <span className="text-xs bg-emerald-50 text-emerald-600 px-2.5 py-1 rounded-full font-semibold">Free</span>}

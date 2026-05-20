@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from 'sonner';
-import { Eye, EyeOff, UserPlus, Check } from 'lucide-react';
+import { Eye, EyeOff, UserPlus, Check, User, Star, Target, Users } from 'lucide-react';
 import { UserRole } from '@/types';
 import PageTransition from '@/components/ui-custom/PageTransition';
 
-const ROLES: { value: UserRole; label: string; desc: string; icon: string }[] = [
-  { value: 'user', label: 'Community Member', desc: 'Join communities and attend events', icon: '👤' },
-  { value: 'creator', label: 'Creator / Influencer', desc: 'Build audience and monetize content', icon: '🌟' },
-  { value: 'organizer', label: 'Community Organizer', desc: 'Manage groups and organize events', icon: '🎯' },
-  { value: 'team', label: 'Team / Family', desc: 'Collaborate with your team privately', icon: '👥' },
+const ROLES: { value: UserRole; label: string; desc: string; Icon: React.ElementType }[] = [
+  { value: 'user', label: 'Community Member', desc: 'Join communities and attend events', Icon: User },
+  { value: 'creator', label: 'Creator / Influencer', desc: 'Build audience and monetize content', Icon: Star },
+  { value: 'organizer', label: 'Community Organizer', desc: 'Manage groups and organize events', Icon: Target },
+  { value: 'team', label: 'Team / Family', desc: 'Collaborate with your team privately', Icon: Users },
 ];
 
 export default function Register() {
@@ -57,7 +57,7 @@ export default function Register() {
     const success = await register(name, email, password, role);
     setLoading(false);
     if (success) {
-      toast.success('Account created successfully! Welcome to TOGETHERS! 🎉');
+      toast.success('Account created successfully! Welcome to TOGETHERS!');
       const dashboardRoutes: Record<UserRole, string> = {
         admin: '/dashboard/admin',
         creator: '/dashboard/creator',
@@ -92,13 +92,12 @@ export default function Register() {
 
             <div className="grid grid-cols-2 gap-3">
               {[
-                { emoji: '🌐', stat: '50K+', label: 'Communities' },
-                { emoji: '⚡', stat: '12K', label: 'Daily Events' },
-                { emoji: '💰', stat: '₹10Cr+', label: 'Creator Revenue' },
-                { emoji: '🏆', stat: '94%', label: 'Satisfaction Rate' },
+                { stat: '50K+', label: 'Communities' },
+                { stat: '12K', label: 'Daily Events' },
+                { stat: 'Rs.10Cr+', label: 'Creator Revenue' },
+                { stat: '94%', label: 'Satisfaction Rate' },
               ].map(s => (
                 <div key={s.label} className="glass rounded-2xl p-4 text-center">
-                  <div className="text-3xl mb-1">{s.emoji}</div>
                   <div className="text-xl font-bold text-white">{s.stat}</div>
                   <div className="text-xs text-white/60">{s.label}</div>
                 </div>
@@ -126,23 +125,26 @@ export default function Register() {
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-3">I want to join as...</label>
                 <div className="grid grid-cols-2 gap-2">
-                  {ROLES.map(r => (
-                    <button
-                      key={r.value}
-                      type="button"
-                      onClick={() => setRole(r.value)}
-                      className={`relative text-left p-3 rounded-xl border-2 transition-all ${role === r.value ? 'border-coral-500 bg-coral-50' : 'border-gray-100 hover:border-gray-200 bg-gray-50'}`}
-                    >
-                      {role === r.value && (
-                        <div className="absolute top-2 right-2 w-5 h-5 bg-coral-500 rounded-full flex items-center justify-center">
-                          <Check size={11} className="text-white" />
-                        </div>
-                      )}
-                      <span className="text-lg mb-1 block">{r.icon}</span>
-                      <p className="font-semibold text-gray-900 text-xs">{r.label}</p>
-                      <p className="text-xs text-gray-400 mt-0.5 leading-tight">{r.desc}</p>
-                    </button>
-                  ))}
+                  {ROLES.map(r => {
+                    const RoleIcon = r.Icon;
+                    return (
+                      <button
+                        key={r.value}
+                        type="button"
+                        onClick={() => setRole(r.value)}
+                        className={`relative text-left p-3 rounded-xl border-2 transition-all ${role === r.value ? 'border-coral-500 bg-coral-50' : 'border-gray-100 hover:border-gray-200 bg-gray-50'}`}
+                      >
+                        {role === r.value && (
+                          <div className="absolute top-2 right-2 w-5 h-5 bg-coral-500 rounded-full flex items-center justify-center">
+                            <Check size={11} className="text-white" />
+                          </div>
+                        )}
+                        <RoleIcon size={18} className="mb-1 text-coral-500" />
+                        <p className="font-semibold text-gray-900 text-xs">{r.label}</p>
+                        <p className="text-xs text-gray-400 mt-0.5 leading-tight">{r.desc}</p>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 

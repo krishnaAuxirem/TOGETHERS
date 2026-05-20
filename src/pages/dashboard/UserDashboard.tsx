@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Users, MessageSquare, Calendar, Bell, Star, TrendingUp, Heart, Bookmark, Share2 } from 'lucide-react';
+import { Users, MessageSquare, Calendar, Heart, Bookmark, Share2 } from 'lucide-react';
 import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import StatCard from '@/components/ui-custom/StatCard';
 import { POSTS } from '@/data/mockData';
@@ -43,7 +43,7 @@ export default function UserDashboard() {
     };
     setPosts(ps => [post, ...ps]);
     setNewPost('');
-    toast.success('Post shared! 🎉');
+    toast.success('Post shared!');
   };
 
   const SUGGESTIONS = [
@@ -59,7 +59,7 @@ export default function UserDashboard() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Welcome */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900">Welcome back, {user?.name?.split(' ')[0]}! 👋</h1>
+            <h1 className="text-2xl font-bold text-gray-900">Welcome back, {user?.name?.split(' ')[0]}!</h1>
             <p className="text-gray-500 mt-1">Here's what's happening in your community today.</p>
           </div>
 
@@ -181,9 +181,9 @@ export default function UserDashboard() {
                 </div>
                 <div className="space-y-2">
                   {[
-                    { action: 'Posts shared', pts: 60, max: 100 },
-                    { action: 'Comments made', pts: 45, max: 100 },
-                    { action: 'Events attended', pts: 80, max: 100 },
+                    { action: 'Posts shared', pts: 60 },
+                    { action: 'Comments made', pts: 45 },
+                    { action: 'Events attended', pts: 80 },
                   ].map(a => (
                     <div key={a.action}>
                       <div className="flex justify-between text-xs text-gray-500 mb-1">

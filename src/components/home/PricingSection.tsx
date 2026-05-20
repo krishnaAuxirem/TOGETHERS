@@ -10,7 +10,7 @@ export default function PricingSection() {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="💎 Pricing"
+          badge="Pricing"
           title="Simple, Transparent "
           highlight="Pricing"
           subtitle="Start free. Scale as you grow. All prices in Indian Rupees."
@@ -31,7 +31,7 @@ export default function PricingSection() {
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                     <span className="bg-coral-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-coral">
-                      ⭐ Most Popular
+                      Most Popular
                     </span>
                   </div>
                 )}

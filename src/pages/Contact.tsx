@@ -13,7 +13,7 @@ export default function Contact() {
     await new Promise(r => setTimeout(r, 1500));
     setLoading(false);
     setForm({ name: '', email: '', subject: '', message: '' });
-    toast.success('Message sent! We\'ll get back to you within 24 hours. 🎉');
+    toast.success('Message sent! We will get back to you within 24 hours.');
   };
 
   return (
@@ -22,7 +22,7 @@ export default function Contact() {
         {/* Hero */}
         <div className="gradient-hero py-20 text-center text-white">
           <div className="max-w-3xl mx-auto px-4">
-            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">💬 Contact Us</span>
+            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">Contact Us</span>
             <h1 className="text-5xl font-black mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>We'd Love to Hear From You</h1>
             <p className="text-white/70 text-xl">Our team typically responds within 4-6 hours on business days.</p>
           </div>

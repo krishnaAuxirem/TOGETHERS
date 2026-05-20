@@ -11,11 +11,11 @@ const BADGES = [
 ];
 
 const LEADERBOARD = [
-  { rank: 1, name: 'Arjun Mehta', points: 48920, avatar: 'https://i.pravatar.cc/150?img=12', badge: '🏆' },
-  { rank: 2, name: 'Meera Nair', points: 42150, avatar: 'https://i.pravatar.cc/150?img=35', badge: '🥈' },
-  { rank: 3, name: 'Vikram Reddy', points: 38400, avatar: 'https://i.pravatar.cc/150?img=22', badge: '🥉' },
-  { rank: 4, name: 'Priya Sharma', points: 34200, avatar: 'https://i.pravatar.cc/150?img=47', badge: '⭐' },
-  { rank: 5, name: 'Aditya Joshi', points: 28900, avatar: 'https://i.pravatar.cc/150?img=15', badge: '⭐' },
+  { rank: 1, name: 'Arjun Mehta', points: 48920, avatar: 'https://i.pravatar.cc/150?img=12' },
+  { rank: 2, name: 'Meera Nair', points: 42150, avatar: 'https://i.pravatar.cc/150?img=35' },
+  { rank: 3, name: 'Vikram Reddy', points: 38400, avatar: 'https://i.pravatar.cc/150?img=22' },
+  { rank: 4, name: 'Priya Sharma', points: 34200, avatar: 'https://i.pravatar.cc/150?img=47' },
+  { rank: 5, name: 'Aditya Joshi', points: 28900, avatar: 'https://i.pravatar.cc/150?img=15' },
 ];
 
 export default function GamificationSection() {
@@ -28,7 +28,7 @@ export default function GamificationSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="🎮 Gamification"
+          badge="Gamification"
           title="Earn Badges, "
           highlight="Level Up"
           subtitle="Get rewarded for every contribution, event, and connection. The more you engage, the more you earn."
@@ -56,12 +56,12 @@ export default function GamificationSection() {
 
           {/* Leaderboard */}
           <div>
-            <h3 className="text-xl font-bold mb-6 text-white/90">🏆 Weekly Leaderboard</h3>
+            <h3 className="text-xl font-bold mb-6 text-white/90">Weekly Leaderboard</h3>
             <div className="space-y-3">
               {LEADERBOARD.map(entry => (
                 <div key={entry.rank} className={`flex items-center gap-4 glass rounded-2xl p-4 hover-lift ${entry.rank === 1 ? 'border border-amber-400/30 bg-amber-400/5' : ''}`}>
                   <div className="w-8 text-center">
-                    <span className="text-xl">{entry.badge}</span>
+                    <span className="text-sm font-bold text-white/60">#{entry.rank}</span>
                   </div>
                   <img src={entry.avatar} alt={entry.name} className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
                   <div className="flex-1">

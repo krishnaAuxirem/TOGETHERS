@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ShoppingBag, Search, Star, ArrowRight, Package, Users, Heart } from 'lucide-react';
+import { ShoppingBag, Search, Star, ArrowRight, Heart, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 import PageTransition from '@/components/ui-custom/PageTransition';
@@ -12,15 +12,15 @@ const PRODUCTS = [
   { id: '3', title: 'Event Planning Masterclass', desc: '8-hour course on organizing successful events', price: 4999, rating: 4.7, sales: 567, category: 'Course', author: 'Priya Sharma', avatar: 'https://i.pravatar.cc/150?img=47' },
   { id: '4', title: 'Social Media Growth Playbook', desc: 'Proven strategies to grow your social presence 10x', price: 999, rating: 4.6, sales: 2100, category: 'Guide', author: 'Ravi Kumar', avatar: 'https://i.pravatar.cc/150?img=33' },
   { id: '5', title: 'AI Tools for Creators', desc: 'How to use AI to 10x your content production', price: 1999, rating: 4.9, sales: 780, category: 'Course', author: 'Vikram Reddy', avatar: 'https://i.pravatar.cc/150?img=22' },
-  { id: '6', title: 'Community Monetization Blueprint', desc: 'Turn your community into a ₹1L/month business', price: 3499, rating: 4.8, sales: 430, category: 'Blueprint', author: 'Meera Nair', avatar: 'https://i.pravatar.cc/150?img=35' },
+  { id: '6', title: 'Community Monetization Blueprint', desc: 'Turn your community into a Rs.1L/month business', price: 3499, rating: 4.8, sales: 430, category: 'Blueprint', author: 'Meera Nair', avatar: 'https://i.pravatar.cc/150?img=35' },
 ];
 
 const CATEGORIES = ['All', 'Guide', 'Templates', 'Course', 'Blueprint'];
 
 const FUNDRAISING = [
-  { title: 'Rural India Tech Education', goal: 500000, raised: 342000, backers: 234, emoji: '📚' },
-  { title: 'Women Creators Fund 2025', goal: 1000000, raised: 789000, backers: 567, emoji: '👩‍💻' },
-  { title: 'Indie Game Dev Bootcamp', goal: 300000, raised: 198000, backers: 145, emoji: '🎮' },
+  { title: 'Rural India Tech Education', goal: 500000, raised: 342000, backers: 234 },
+  { title: 'Women Creators Fund 2025', goal: 1000000, raised: 789000, backers: 567 },
+  { title: 'Indie Game Dev Bootcamp', goal: 300000, raised: 198000, backers: 145 },
 ];
 
 export default function Marketplace() {
@@ -37,14 +37,14 @@ export default function Marketplace() {
 
   const handleBuy = (id: string, title: string) => {
     setCartIds(prev => new Set([...prev, id]));
-    toast.success(`${title} added to cart! 🛒`);
+    toast.success(`${title} added to cart!`);
   };
 
   const handleWishlist = (id: string, title: string) => {
     setWishlistIds(prev => {
       const next = new Set(prev);
       if (next.has(id)) { next.delete(id); toast.info('Removed from wishlist'); }
-      else { next.add(id); toast.success('Added to wishlist ❤️'); }
+      else { next.add(id); toast.success('Added to wishlist!'); }
       return next;
     });
   };
@@ -58,7 +58,7 @@ export default function Marketplace() {
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/60" />
           <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
             <div className="max-w-2xl">
-              <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">🛒 Creator Marketplace</span>
+              <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">Creator Marketplace</span>
               <h1 className="text-5xl font-black mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Discover Creator Products & Resources</h1>
               <p className="text-white/70 text-lg mb-8">Buy and sell courses, guides, templates, and digital products from India's top creators.</p>
 
@@ -110,13 +110,13 @@ export default function Marketplace() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-black text-coral-600">₹{product.price.toLocaleString()}</span>
+                    <span className="text-2xl font-black text-coral-600">Rs.{product.price.toLocaleString()}</span>
                     <button
                       onClick={() => handleBuy(product.id, product.title)}
                       className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${cartIds.has(product.id) ? 'bg-emerald-50 text-emerald-600 border border-emerald-200' : 'bg-coral-500 hover:bg-coral-600 text-white shadow-coral hover-lift'}`}
                     >
                       <ShoppingBag size={14} />
-                      {cartIds.has(product.id) ? 'In Cart ✓' : 'Buy Now'}
+                      {cartIds.has(product.id) ? 'In Cart' : 'Buy Now'}
                     </button>
                   </div>
                 </div>
@@ -126,18 +126,20 @@ export default function Marketplace() {
 
           {/* Community Fundraising */}
           <div className="mb-16">
-            <SectionHeader badge="💝 Community Fundraising" title="Support " highlight="Community Causes" subtitle="Crowdfunding for communities that matter." center={false} />
+            <SectionHeader badge="Community Fundraising" title="Support " highlight="Community Causes" subtitle="Crowdfunding for communities that matter." center={false} />
             <div className="grid md:grid-cols-3 gap-6">
               {FUNDRAISING.map(f => {
                 const pct = Math.round((f.raised / f.goal) * 100);
                 return (
                   <div key={f.title} className="glass-card rounded-3xl p-6 hover-lift border border-gray-100">
-                    <div className="text-4xl mb-4">{f.emoji}</div>
+                    <div className="w-10 h-10 bg-coral-50 rounded-xl flex items-center justify-center mb-4">
+                      <TrendingUp size={18} className="text-coral-500" />
+                    </div>
                     <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
                     <div className="mb-4">
                       <div className="flex justify-between text-sm mb-2">
-                        <span className="font-bold text-coral-600">₹{(f.raised / 1000).toFixed(0)}K raised</span>
-                        <span className="text-gray-500">of ₹{(f.goal / 1000).toFixed(0)}K</span>
+                        <span className="font-bold text-coral-600">Rs.{(f.raised / 1000).toFixed(0)}K raised</span>
+                        <span className="text-gray-500">of Rs.{(f.goal / 1000).toFixed(0)}K</span>
                       </div>
                       <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                         <div className="h-full gradient-primary rounded-full" style={{ width: `${pct}%` }} />
@@ -147,7 +149,7 @@ export default function Marketplace() {
                         <span>{f.backers} backers</span>
                       </div>
                     </div>
-                    <button onClick={() => toast.success('Thank you for your support! 💝')} className="w-full py-3 bg-coral-500 hover:bg-coral-600 text-white font-semibold rounded-xl transition-all hover-lift text-sm">
+                    <button onClick={() => toast.success('Thank you for your support!')} className="w-full py-3 bg-coral-500 hover:bg-coral-600 text-white font-semibold rounded-xl transition-all hover-lift text-sm">
                       Support This Cause
                     </button>
                   </div>

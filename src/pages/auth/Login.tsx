@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from 'sonner';
-import { Eye, EyeOff, LogIn, AlertCircle } from 'lucide-react';
+import { Eye, EyeOff, LogIn, AlertCircle, Crown, Star, Target, User, Users } from 'lucide-react';
 import PageTransition from '@/components/ui-custom/PageTransition';
 
 const DEMO_ACCOUNTS = [
-  { label: 'Admin', email: 'admin@togethers.com', icon: '👑' },
-  { label: 'Creator', email: 'creator@togethers.com', icon: '🌟' },
-  { label: 'Organizer', email: 'organizer@togethers.com', icon: '🎯' },
-  { label: 'User', email: 'user@togethers.com', icon: '👤' },
-  { label: 'Team', email: 'team@togethers.com', icon: '👥' },
+  { label: 'Admin', email: 'admin@togethers.com', Icon: Crown },
+  { label: 'Creator', email: 'creator@togethers.com', Icon: Star },
+  { label: 'Organizer', email: 'organizer@togethers.com', Icon: Target },
+  { label: 'User', email: 'user@togethers.com', Icon: User },
+  { label: 'Team', email: 'team@togethers.com', Icon: Users },
 ];
 
 export default function Login() {
@@ -31,7 +31,7 @@ export default function Login() {
     const success = await login(email, password);
     setLoading(false);
     if (success) {
-      toast.success('Welcome back! 🎉');
+      toast.success('Welcome back!');
       navigate('/dashboard/user');
     } else {
       toast.error('Invalid email or password. Please register first or try a demo account.');
@@ -63,16 +63,19 @@ export default function Login() {
             <p className="text-white/70 text-lg mb-10">Your community is waiting for you.</p>
 
             <div className="glass rounded-3xl p-6 text-left">
-              <p className="text-sm font-semibold text-white/80 mb-4">🔐 Demo Accounts (password: demo123)</p>
-              {DEMO_ACCOUNTS.map(acc => (
-                <button key={acc.email} onClick={() => handleDemoLogin(acc.email)} className="w-full text-left flex items-center gap-3 p-3 hover:bg-white/10 rounded-xl transition-colors mb-1">
-                  <span className="text-xl">{acc.icon}</span>
-                  <div>
-                    <p className="text-sm font-medium text-white">{acc.label}</p>
-                    <p className="text-xs text-white/50">{acc.email}</p>
-                  </div>
-                </button>
-              ))}
+              <p className="text-sm font-semibold text-white/80 mb-4">Demo Accounts (password: demo123)</p>
+              {DEMO_ACCOUNTS.map(acc => {
+                const AccIcon = acc.Icon;
+                return (
+                  <button key={acc.email} onClick={() => handleDemoLogin(acc.email)} className="w-full text-left flex items-center gap-3 p-3 hover:bg-white/10 rounded-xl transition-colors mb-1">
+                    <AccIcon size={18} className="text-white/70 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-white">{acc.label}</p>
+                      <p className="text-xs text-white/50">{acc.email}</p>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -152,7 +155,7 @@ export default function Login() {
 
               {['Google', 'LinkedIn'].map(provider => (
                 <button key={provider} type="button" onClick={() => { toast.info(`${provider} auth coming soon!`); }} className="w-full flex items-center justify-center gap-3 py-3.5 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 rounded-xl transition-all font-semibold text-gray-700 text-sm">
-                  <span>{provider === 'Google' ? '🔵' : '💼'}</span> Continue with {provider}
+                  Continue with {provider}
                 </button>
               ))}
             </form>
@@ -163,7 +166,7 @@ export default function Login() {
               <div className="flex flex-wrap gap-2">
                 {DEMO_ACCOUNTS.map(acc => (
                   <button key={acc.email} onClick={() => handleDemoLogin(acc.email)} className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-lg hover:border-coral-400 transition-colors">
-                    {acc.icon} {acc.label}
+                    {acc.label}
                   </button>
                 ))}
               </div>

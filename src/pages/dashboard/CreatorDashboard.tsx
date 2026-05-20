@@ -37,7 +37,7 @@ export default function CreatorDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="mb-8 flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Creator Studio 🌟</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Creator Studio</h1>
               <p className="text-gray-500 mt-1">Your creator performance at a glance.</p>
             </div>
             <button onClick={() => toast.success('New content creation mode opened!')} className="px-5 py-2.5 bg-coral-500 hover:bg-coral-600 text-white font-semibold rounded-xl transition-all hover-lift shadow-coral text-sm">

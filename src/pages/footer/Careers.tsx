@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin, Briefcase } from 'lucide-react';
+import { ArrowRight, MapPin, Briefcase, Home, DollarSign, Shield, BookOpen, Clock, Star } from 'lucide-react';
 import PageTransition from '@/components/ui-custom/PageTransition';
 import { toast } from 'sonner';
 
@@ -13,12 +13,12 @@ const JOBS = [
 ];
 
 const PERKS = [
-  { emoji: '🏠', title: 'Remote-First', desc: 'Work from anywhere in India. We trust you.' },
-  { emoji: '💰', title: 'Competitive Pay', desc: 'Top market salaries + ESOP for all employees.' },
-  { emoji: '🏥', title: 'Health Insurance', desc: 'Full coverage for you and your family.' },
-  { emoji: '📚', title: 'Learning Budget', desc: '₹50,000/year for courses, books, and conferences.' },
-  { emoji: '⏰', title: 'Flexible Hours', desc: 'Set your own schedule. Outcomes over hours.' },
-  { emoji: '🎉', title: 'Team Events', desc: 'Quarterly offsite, monthly celebrations, and more.' },
+  { Icon: Home, title: 'Remote-First', desc: 'Work from anywhere in India. We trust you.' },
+  { Icon: DollarSign, title: 'Competitive Pay', desc: 'Top market salaries + ESOP for all employees.' },
+  { Icon: Shield, title: 'Health Insurance', desc: 'Full coverage for you and your family.' },
+  { Icon: BookOpen, title: 'Learning Budget', desc: 'Rs.50,000/year for courses, books, and conferences.' },
+  { Icon: Clock, title: 'Flexible Hours', desc: 'Set your own schedule. Outcomes over hours.' },
+  { Icon: Star, title: 'Team Events', desc: 'Quarterly offsite, monthly celebrations, and more.' },
 ];
 
 export default function Careers() {
@@ -30,7 +30,7 @@ export default function Careers() {
             <div className="absolute top-10 right-10 w-64 h-64 bg-coral-500 rounded-full blur-3xl animate-float" />
           </div>
           <div className="relative max-w-3xl mx-auto px-4">
-            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">🚀 We're Hiring!</span>
+            <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-white/20">We are Hiring!</span>
             <h1 className="text-5xl font-black mb-4" style={{ fontFamily: 'Plus Jakarta Sans' }}>Build the Future of<br /><span className="text-coral-300">Community Together</span></h1>
             <p className="text-white/70 text-xl mb-8">Join a passionate team building India's most impactful social platform. 30+ open roles.</p>
             <a href="#openings" className="inline-flex items-center gap-2 px-8 py-4 bg-coral-500 hover:bg-coral-600 text-white font-bold rounded-2xl transition-all hover-lift shadow-coral">
@@ -44,13 +44,18 @@ export default function Careers() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center" style={{ fontFamily: 'Plus Jakarta Sans' }}>Why Join TOGETHERS?</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {PERKS.map(perk => (
-                <div key={perk.title} className="glass-card rounded-2xl p-6 hover-lift border border-gray-100">
-                  <div className="text-4xl mb-3">{perk.emoji}</div>
-                  <h3 className="font-bold text-gray-900 mb-2">{perk.title}</h3>
-                  <p className="text-sm text-gray-500">{perk.desc}</p>
-                </div>
-              ))}
+              {PERKS.map(perk => {
+                const PerkIcon = perk.Icon;
+                return (
+                  <div key={perk.title} className="glass-card rounded-2xl p-6 hover-lift border border-gray-100">
+                    <div className="w-10 h-10 bg-coral-50 rounded-xl flex items-center justify-center mb-3">
+                      <PerkIcon size={18} className="text-coral-500" />
+                    </div>
+                    <h3 className="font-bold text-gray-900 mb-2">{perk.title}</h3>
+                    <p className="text-sm text-gray-500">{perk.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -75,7 +80,7 @@ export default function Careers() {
                       <span className="text-xs bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded-full font-medium">{job.level}</span>
                     </div>
                   </div>
-                  <button onClick={() => toast.success('Application submitted! We\'ll be in touch soon.')} className="flex-shrink-0 px-5 py-2.5 bg-coral-500 hover:bg-coral-600 text-white font-semibold rounded-xl transition-all hover-lift text-sm">
+                  <button onClick={() => toast.success('Application submitted! We will be in touch soon.')} className="flex-shrink-0 px-5 py-2.5 bg-coral-500 hover:bg-coral-600 text-white font-semibold rounded-xl transition-all hover-lift text-sm">
                     Apply Now
                   </button>
                 </div>

@@ -8,7 +8,7 @@ export default function AnalyticsPreview() {
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="📊 Analytics"
+          badge="Analytics"
           title="Real-Time Insights at "
           highlight="Your Fingertips"
           subtitle="Track growth, engagement, and revenue with beautiful, actionable analytics dashboards."
