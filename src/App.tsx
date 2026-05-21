@@ -37,6 +37,13 @@ import CreatorDashboard from './pages/dashboard/CreatorDashboard';
 import OrganizerDashboard from './pages/dashboard/OrganizerDashboard';
 import TeamDashboard from './pages/dashboard/TeamDashboard';
 
+// Creator Sub-Pages
+import CreatorEvents from './pages/dashboard/creator/CreatorEvents';
+import CreatorMonetization from './pages/dashboard/creator/CreatorMonetization';
+import CreatorAnalytics from './pages/dashboard/creator/CreatorAnalytics';
+import CreatorMessages from './pages/dashboard/creator/CreatorMessages';
+import CreatorSettings from './pages/dashboard/creator/CreatorSettings';
+
 const queryClient = new QueryClient();
 
 // Pages that don't need Navbar/Footer (full-screen experiences)
@@ -76,7 +83,12 @@ function AppRoutes() {
       <Route path="/dashboard/admin" element={<AdminDashboard />} />
       <Route path="/dashboard/admin/*" element={<AdminDashboard />} />
       <Route path="/dashboard/creator" element={<CreatorDashboard />} />
-      <Route path="/dashboard/creator/*" element={<CreatorDashboard />} />
+      <Route path="/dashboard/creator/events" element={<CreatorEvents />} />
+      <Route path="/dashboard/creator/monetization" element={<CreatorMonetization />} />
+      <Route path="/dashboard/creator/analytics" element={<CreatorAnalytics />} />
+      <Route path="/dashboard/creator/messages" element={<CreatorMessages />} />
+      <Route path="/dashboard/creator/settings" element={<CreatorSettings />} />
+      <Route path="/dashboard/creator/community" element={<CreatorDashboard />} />
       <Route path="/dashboard/organizer" element={<OrganizerDashboard />} />
       <Route path="/dashboard/organizer/*" element={<OrganizerDashboard />} />
       <Route path="/dashboard/team" element={<TeamDashboard />} />
